@@ -8,7 +8,8 @@ public class LoginPageTests extends TestBase{
     @Test
     public void loginPositiveTest(){
         new LoginPage(driver)
-                .login("Nata", "Pnata1978!");
+                .login("Nata", "Pnata1978!")
+                .verifyUserName("Nata");
     }
 
 }
