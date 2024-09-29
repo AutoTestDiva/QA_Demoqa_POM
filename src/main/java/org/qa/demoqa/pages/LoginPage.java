@@ -27,6 +27,7 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage loginNegative(String userName, String password){
+        typeWithJSExecutor(userNameField, userName, 0, 500);
         type(userNameField, userName);
         type(passwordField, password);
         click(loginButton);
