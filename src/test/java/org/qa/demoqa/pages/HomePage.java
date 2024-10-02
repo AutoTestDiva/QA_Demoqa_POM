@@ -12,7 +12,7 @@ public class HomePage extends BasePage{
 
     @FindBy(css=".top-card:nth-child(6)")
     WebElement bookStore;
-    public SidePanel getBook() {
+    public SidePanel getBookStore() {
         clickWithJSExecutor(bookStore, 0, 600);
         return new SidePanel(driver);
     }

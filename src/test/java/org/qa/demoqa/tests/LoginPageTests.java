@@ -10,7 +10,7 @@ public class LoginPageTests extends TestBase{
 
     @BeforeMethod
     public void precondition(){
-        new HomePage(driver).getBook();
+        new HomePage(driver).getBookStore();
         new SidePanel(driver).selectLogin();
     }
 
