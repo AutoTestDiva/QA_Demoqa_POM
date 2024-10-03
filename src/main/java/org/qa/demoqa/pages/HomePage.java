@@ -31,4 +31,11 @@ public class HomePage extends BasePage{
         click(windowsLink);
         return new WindowPage(driver);
     }
+
+    @FindBy(xpath = "//a[.='Form Authentication']")
+    WebElement formLink;
+    public JSExecutor getFormAuthentication() {
+        click(formLink);
+        return new JSExecutor(driver);
+    }
 }
