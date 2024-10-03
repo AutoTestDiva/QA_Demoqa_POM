@@ -16,4 +16,19 @@ public class HomePage extends BasePage{
         clickWithJSExecutor(bookStore, 0, 600);
         return new SidePanel(driver);
     }
+
+
+    @FindBy(xpath = "//a[.='JavaScript Alerts']")
+    WebElement alertsLink;
+    public AlertsPage getAlerts() {
+        click (alertsLink);
+        return new AlertsPage(driver);
+    }
+
+    @FindBy(xpath = "//a[.='Multiple Windows']")
+    WebElement windowsLink;
+    public WindowPage getMultipleWindows() {
+        click(windowsLink);
+        return new WindowPage(driver);
+    }
 }
