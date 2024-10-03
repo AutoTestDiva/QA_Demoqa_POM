@@ -18,7 +18,7 @@ public class JSExecutorTests extends TestBase{
 }
 /* JSExecutor commands:
 refresh page - "history.go(0);"
-check all text - "return document.documentElement.innerText;"
+return all text - "return document.documentElement.innerText;"
 navigate to new page - "window.location = 'https://demoqa.com';" //go on another page
 check title of page - "return document.title;" //print name/title of all page
  */
