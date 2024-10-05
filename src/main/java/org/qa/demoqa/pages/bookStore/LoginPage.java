@@ -1,8 +1,9 @@
-package org.qa.demoqa.pages;
+package org.qa.demoqa.pages.bookStore;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.qa.demoqa.pages.BasePage;
 
 public class LoginPage extends BasePage {
 
