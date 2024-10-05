@@ -5,9 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.qa.demoqa.pages.BasePage;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.Iterator;
 import java.util.List;
 
@@ -38,23 +35,4 @@ public class LinksPage extends BasePage {
         }
     }
 
-    private void verifyLinks(String linkUrl) {
-            try {
-                //this is connection
-                URL url = new URL(linkUrl);
-                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.setConnectTimeout(5000);
-                connection.connect();
-
-                //this is result/response
-                if (connection.getResponseCode() >= 400) {
-                    System.out.println(linkUrl + "-" + connection.getResponseMessage() + " is a brokenLink");
-                } else {
-                    System.out.println(linkUrl + "-" + connection.getResponseMessage());
-                }
-            }catch (Exception ex){
-                System.out.println(linkUrl + "-" + ex.getMessage() + " is a brokenLink");
-            }
-
-    }
 }

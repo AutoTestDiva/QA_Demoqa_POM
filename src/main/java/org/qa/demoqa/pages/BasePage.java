@@ -7,6 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.time.Duration;
 
 public abstract class BasePage {
@@ -55,5 +57,24 @@ public abstract class BasePage {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void verifyLinks(String linkUrl) {
+            try {
+                //this is connection
+                URL url = new URL(linkUrl);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setConnectTimeout(5000);
+                connection.connect();
+
+                //this is result/response
+                if (connection.getResponseCode() >= 400) {
+                    System.out.println(linkUrl + "-" + connection.getResponseMessage() + " is a brokenLink");
+                } else {
+                    System.out.println(linkUrl + "-" + connection.getResponseMessage());
+                }
+            }catch (Exception ex){
+                System.out.println(linkUrl + "-" + ex.getMessage() + " is a brokenLink");
+            }
     }
 }
