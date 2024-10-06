@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.qa.demoqa.pages.alertsFrameWindows.FramePage;
+import org.qa.demoqa.pages.alertsFrameWindows.NestedFramesPage;
 import org.qa.demoqa.pages.bookStore.LoginPage;
 import org.qa.demoqa.pages.bookStore.ProfilePage;
 import org.qa.demoqa.pages.elements.BrokenLinksImagesPage;
@@ -48,5 +49,12 @@ public class SidePanel extends BasePage{
     public FramePage selectFrame() {
         clickWithJSExecutor(frames, 0, 300);
         return new FramePage(driver);
+    }
+
+    @FindBy(xpath = "//span[.='Nested Frames']")
+    WebElement nestedFrames;
+    public NestedFramesPage selectNestedFrames() {
+        clickWithJSExecutor(nestedFrames, 0, 300);
+        return new NestedFramesPage(driver);
     }
 }
