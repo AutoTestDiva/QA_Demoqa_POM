@@ -10,6 +10,9 @@ import org.qa.demoqa.pages.bookStore.ProfilePage;
 import org.qa.demoqa.pages.elements.BrokenLinksImagesPage;
 import org.qa.demoqa.pages.elements.ButtonsPage;
 import org.qa.demoqa.pages.elements.LinksPage;
+import org.qa.demoqa.pages.widgets.AutoCompletePage;
+import org.qa.demoqa.pages.widgets.MenuPage;
+import org.qa.demoqa.pages.widgets.SliderPage;
 
 public class SidePanel extends BasePage{
 
@@ -64,5 +67,25 @@ public class SidePanel extends BasePage{
     public ButtonsPage selectButtons() {
         clickWithJSExecutor(buttons, 0, 300);
         return new ButtonsPage(driver);
+    }
+    @FindBy(xpath = "//span[.='Auto Complete']")
+    WebElement autoComplete;
+    public AutoCompletePage selectAutoComplete() {
+        clickWithJSExecutor(autoComplete,0, 500);
+        return new AutoCompletePage(driver);
+    }
+
+    @FindBy(xpath = "//span[.='Slider']")
+    WebElement slider;
+    public SliderPage selectSlider() {
+        clickWithJSExecutor(slider,0,700);
+        return new SliderPage(driver);
+    }
+
+    @FindBy(xpath = "//span[.='Menu']")
+    WebElement menu;
+    public MenuPage selectMenu() {
+        clickWithJSExecutor(menu,0,600);
+        return new MenuPage(driver);
     }
 }
