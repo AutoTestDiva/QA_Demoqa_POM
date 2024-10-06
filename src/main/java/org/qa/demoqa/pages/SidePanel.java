@@ -8,6 +8,7 @@ import org.qa.demoqa.pages.alertsFrameWindows.NestedFramesPage;
 import org.qa.demoqa.pages.bookStore.LoginPage;
 import org.qa.demoqa.pages.bookStore.ProfilePage;
 import org.qa.demoqa.pages.elements.BrokenLinksImagesPage;
+import org.qa.demoqa.pages.elements.ButtonsPage;
 import org.qa.demoqa.pages.elements.LinksPage;
 
 public class SidePanel extends BasePage{
@@ -56,5 +57,12 @@ public class SidePanel extends BasePage{
     public NestedFramesPage selectNestedFrames() {
         clickWithJSExecutor(nestedFrames, 0, 300);
         return new NestedFramesPage(driver);
+    }
+
+    @FindBy(xpath = "//span[.='Buttons']")
+    WebElement buttons;
+    public ButtonsPage selectButtons() {
+        clickWithJSExecutor(buttons, 0, 300);
+        return new ButtonsPage(driver);
     }
 }
