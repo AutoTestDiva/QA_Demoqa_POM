@@ -26,11 +26,20 @@ public class NestedFramesPage extends BasePage {
         System.out.println("The total numbers of iframes in the main page: " + iframes.size());
         //switch to parent iframe
         driver.switchTo().frame(frame1);
-        //get the numbers from parent iframe
-        System.out.println("TThe total numbers of iframes in the parent iframe:  " + iframes.size());
-
         //number of iframes from parent iframe
+        System.out.println("The total numbers of iframes in the parent iframe:  " + iframes.size());
+        // get the text from parent iframe
+        System.out.println("Iframe is " + body.getText());
+        //switch to child iframe
+        driver.switchTo().frame(0);
+        // get the text from child iframe
+        System.out.println("Iframe is " + body.getText());
 
+        //switch to parent iframe
+       // driver.switchTo().parentFrame();
+
+        //switch to main page
+        //driver.switchTo().defaultContent();
         return this;
     }
 }
