@@ -62,4 +62,14 @@ public class SelectMenuPage extends BasePage {
     }
         return this;
     }
+
+    @FindBy(id = "cars")
+    WebElement cars;
+    public SelectMenuPage standardMultiSelect(int index) {
+        Select select = new Select(cars);
+        if (select.isMultiple()){
+            select.selectByIndex(index);
+        }
+        return this;
+    }
 }

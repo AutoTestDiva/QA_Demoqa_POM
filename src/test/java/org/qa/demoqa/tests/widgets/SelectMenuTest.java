@@ -25,4 +25,8 @@ public class SelectMenuTest extends TestBase {
     public void multiSelectTest1(){ //the same like Test  multiSelectTest
         new SelectMenuPage(driver).multiSelect(new String []{"Blue", "Black", "Red"});
     }
+    @Test
+    public void standardMultiSelectTest(){
+        new SelectMenuPage(driver).standardMultiSelect(2);
+    }
 }
