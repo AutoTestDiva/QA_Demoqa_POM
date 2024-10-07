@@ -15,7 +15,7 @@ public class MenuTest extends TestBase {
         new SidePanel(driver).selectMenu();
     }
     @Test
-    public void sliderTest() {
+    public void menuTest() {
         new MenuPage(driver).selectSubMenu()
                 .assertSubMenu();
     }

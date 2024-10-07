@@ -12,6 +12,7 @@ import org.qa.demoqa.pages.elements.ButtonsPage;
 import org.qa.demoqa.pages.elements.LinksPage;
 import org.qa.demoqa.pages.widgets.AutoCompletePage;
 import org.qa.demoqa.pages.widgets.MenuPage;
+import org.qa.demoqa.pages.widgets.SelectMenuPage;
 import org.qa.demoqa.pages.widgets.SliderPage;
 
 public class SidePanel extends BasePage{
@@ -87,5 +88,12 @@ public class SidePanel extends BasePage{
     public MenuPage selectMenu() {
         clickWithJSExecutor(menu,0,600);
         return new MenuPage(driver);
+    }
+
+    @FindBy(xpath = "//span[.='Select Menu']")
+    WebElement selectMenu;
+    public SelectMenuPage selectSelectMenu() {
+        clickWithJSExecutor(selectMenu,0,600);
+        return new SelectMenuPage(driver);
     }
 }
