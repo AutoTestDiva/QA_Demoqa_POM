@@ -25,16 +25,11 @@ public class PracticeFormTests extends TestBase {
                 .selectGender(StudentData.GENDER)
                 .enterDate(StudentData.DATE)
                 .selectSubjects(StudentData.SUBJECTS)
-                .selectHobby(StudentData.HOBBIES);
-
-        //upload file
-
-        //enter address
-
-        //select state
-
-        //select city
-
-        //click on SUBMIT
+                .selectHobby(StudentData.HOBBIES)
+                .uploadFile(StudentData.PHOTO_PATH)
+                .enterAddress(StudentData.ADDRESS)
+                .selectState(StudentData.STATE)
+                .selectCity(StudentData.CITY)
+                .clickOnSubmitButton2();
     }
 }

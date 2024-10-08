@@ -1,8 +1,10 @@
 package org.qa.demoqa.pages;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Rectangle;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -91,5 +93,17 @@ public abstract class BasePage {
     public void hideAd() {
         js.executeScript("document.getElementById('adplus-anchor').style.display='none';");
         //.style.display='none' - именно это и скрывает рекламу на экране
+    }
+
+    public void clickWithRectangle(WebElement element, int x, int y) { //помогает найти высоту и ширину элемента
+        Rectangle rectangle = element.getRect();
+
+        int xOffset = rectangle.getWidth() / x;
+        int yOffset = rectangle.getHeight() / y;
+
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).perform();
+        actions.moveByOffset(-xOffset, -yOffset).click().perform();
+
     }
 }

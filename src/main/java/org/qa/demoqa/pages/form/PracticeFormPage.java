@@ -104,4 +104,53 @@ public class PracticeFormPage extends BasePage {
         }
             return this;
     }
+
+    @FindBy (id = "uploadPicture")
+    WebElement uploadPicture;
+    public PracticeFormPage uploadFile(String photoPath) {
+    uploadPicture.sendKeys(photoPath);   //т.о. загружаю файл с компа
+        return this;
+    }
+
+    @FindBy (id = "currentAddress")
+    WebElement currentAddress;
+    public PracticeFormPage enterAddress(String address) {
+        type(currentAddress, address);
+        return this;
+    }
+
+    @FindBy (id = "state")
+    WebElement selectState;
+
+    @FindBy (id = "react-select-3-input")
+    WebElement stateInput;
+    public PracticeFormPage selectState(String state) {
+        clickWithJSExecutor(selectState, 0,600);
+        stateInput.sendKeys(state);
+        stateInput.sendKeys(Keys.ENTER);
+        return this;
+    }
+
+    @FindBy (id  = "city")
+    WebElement selectCity;
+    @FindBy (id = "react-select-4-input")
+    WebElement cityInput;
+    public PracticeFormPage selectCity(String city) {
+        clickWithJSExecutor(selectCity, 0,600);
+        cityInput.sendKeys(city);
+        cityInput.sendKeys(Keys.ENTER);
+        return this;
+    }
+
+    @FindBy (id  = "submit")
+    WebElement submit;
+    public PracticeFormPage clickOnSubmitButton() {
+    clickWithJSExecutor(submit,0,600);
+        return this;
+    }
+
+    public PracticeFormPage clickOnSubmitButton2() {
+        clickWithRectangle(submit,2,3);   //метод используется, если кнопка проблемная, не полностью подсвечивается
+        return this;
+    }
 }
