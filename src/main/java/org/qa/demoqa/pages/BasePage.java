@@ -13,10 +13,12 @@ import java.time.Duration;
 
 public abstract class BasePage {
     public WebDriver driver;
+    JavascriptExecutor js;  //он выполняет функции изнутри, т.е. с бэкэнда
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
+        js = (JavascriptExecutor) driver;
     }
     public void click(WebElement element){
         element.click();
@@ -31,7 +33,6 @@ public abstract class BasePage {
     }
 
     public void clickWithJSExecutor(WebElement element, int x, int y){
-        JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(" + x + "," + y + ")");
         element.click();
     }
@@ -76,5 +77,19 @@ public abstract class BasePage {
             }catch (Exception ex){
                 System.out.println(linkUrl + "-" + ex.getMessage() + " is a brokenLink");
             }
+    }
+
+    public void hideIframes() {
+        hideAd();   //будет скрывать рекламу
+        hideFooter(); //будет скрывать футер
+    }
+
+    public void hideFooter() {
+        js.executeScript("document.querySelector('footer').style.display='none';");
+    }
+
+    public void hideAd() {
+        js.executeScript("document.getElementById('adplus-anchor').style.display='none';");
+        //.style.display='none' - именно это и скрывает рекламу на экране
     }
 }
