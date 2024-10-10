@@ -1,9 +1,11 @@
 package org.qa.demoqa.pages.form;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 import org.qa.demoqa.pages.BasePage;
 import org.testng.Assert;
 
@@ -169,11 +171,12 @@ public class PracticeFormPage extends BasePage {
     @FindBy (css = ".react-datepicker__year-select")
     WebElement selectYear;
 
-    @FindBy (xpath = "//div[@class='react-datepicker__week']//div[.='15']")
-    WebElement selectDay;
-
     public PracticeFormPage selectDate(String month, String year, String day) {
     clickWithJSExecutor(dateOfBirthInput,0,600);
+
+    new Select(selectMonth).selectByVisibleText(month);
+    new Select(selectYear).selectByVisibleText(year);
+    driver.findElement(By.xpath("//div[@class='react-datepicker__week']//div[.='"+day+"']")).click();
         return this;
     }
 }
