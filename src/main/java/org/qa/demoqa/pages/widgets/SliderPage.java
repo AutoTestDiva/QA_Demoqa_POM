@@ -26,9 +26,5 @@ public class SliderPage extends BasePage {
         return this;
     }
 
-    private String getValueAttribute(WebElement element, String name) {
-        return element.getAttribute(name);  //возвращает значение аттрибута в виде строки
-    }
-
 
 }

@@ -11,10 +11,7 @@ import org.qa.demoqa.pages.elements.BrokenLinksImagesPage;
 import org.qa.demoqa.pages.elements.ButtonsPage;
 import org.qa.demoqa.pages.elements.LinksPage;
 import org.qa.demoqa.pages.form.PracticeFormPage;
-import org.qa.demoqa.pages.widgets.AutoCompletePage;
-import org.qa.demoqa.pages.widgets.MenuPage;
-import org.qa.demoqa.pages.widgets.SelectMenuPage;
-import org.qa.demoqa.pages.widgets.SliderPage;
+import org.qa.demoqa.pages.widgets.*;
 
 public class SidePanel extends BasePage{
 
@@ -103,5 +100,12 @@ public class SidePanel extends BasePage{
     public PracticeFormPage selectPracticeForm() {
         clickWithJSExecutor(practiceForm, 0,600);
         return new PracticeFormPage(driver);
+    }
+
+    @FindBy(xpath = "//span[.='Tool Tips']")
+    WebElement toolTips;
+    public ToolTipsPage selectToolTips() {
+    clickWithJSExecutor(toolTips,0,600);
+        return new ToolTipsPage(driver);
     }
 }

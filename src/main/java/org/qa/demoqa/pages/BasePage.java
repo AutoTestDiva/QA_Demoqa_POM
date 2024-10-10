@@ -106,4 +106,8 @@ public abstract class BasePage {
         actions.moveByOffset(-xOffset, -yOffset).click().perform();
 
     }
+
+    protected String getValueAttribute(WebElement element, String name) {
+        return element.getAttribute(name);  //возвращает значение аттрибута в виде строки
+    }
 }

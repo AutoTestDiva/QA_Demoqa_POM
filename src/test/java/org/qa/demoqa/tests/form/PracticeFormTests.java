@@ -6,6 +6,7 @@ import org.qa.demoqa.pages.HomePage;
 import org.qa.demoqa.pages.SidePanel;
 import org.qa.demoqa.pages.form.PracticeFormPage;
 import org.qa.demoqa.tests.TestBase;
+import org.qa.demoqa.utils.DataProviders;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -35,17 +36,19 @@ public class PracticeFormTests extends TestBase {
                 .assertSubmit("Thanks for submitting the form");
     }
 
-    @Test
-    public void fillStudentFormUsingDataProviderTest(){
+    @Test(dataProviderClass = DataProviders.class, dataProvider = "studentDataFromCSVFile")
+    public void fillStudentFormUsingDataProviderTest(String name, String lastName,
+                                                     String email, String phone,
+                                                     String dateOfBirth, String path,
+                                                     String address){
         //enter personal data (name, lastname, email, phone number)
-        new PracticeFormPage(driver).enterPersonalData(StudentData.FIRST_NAME, StudentData.LAST_NAME,
-                        StudentData.EMAIL, StudentData.PHONE_NUMBER)
+        new PracticeFormPage(driver).enterPersonalData(name, lastName, email, phone)
                 .selectGender(StudentData.GENDER)
-                .enterDate(StudentData.DATE)
+                .enterDate(dateOfBirth)
                 .selectSubjects(StudentData.SUBJECTS)
                 .selectHobby(StudentData.HOBBIES)
-                .uploadFile(StudentData.PHOTO_PATH)
-                .enterAddress(StudentData.ADDRESS)
+                .uploadFile(path)
+                .enterAddress(address)
                 .selectState(StudentData.STATE)
                 .selectCity(StudentData.CITY)
                 .clickOnSubmitButton2()

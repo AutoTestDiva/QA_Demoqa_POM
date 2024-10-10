@@ -30,7 +30,7 @@ public class LinksPage extends BasePage {
     public void checkBrokenLinks() {
         for (int i=0; i <allLinks.size(); i++){
             WebElement el = allLinks.get(i);
-            String url = el.getAttribute("href");
+            String url = getValueAttribute(el, "href");
             verifyLinks(url);
         }
     }
