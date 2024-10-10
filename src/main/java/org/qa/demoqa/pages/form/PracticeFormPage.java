@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.qa.demoqa.pages.BasePage;
+import org.testng.Assert;
 
 public class PracticeFormPage extends BasePage {
 
@@ -55,7 +56,7 @@ public class PracticeFormPage extends BasePage {
     @FindBy (id = "dateOfBirthInput")
     WebElement dateOfBirthInput;
     public PracticeFormPage enterDate(String date) {
-        click(dateOfBirthInput);
+        clickWithJSExecutor(dateOfBirthInput,0,600);
 
         String os = System.getProperty("os.name");///позволяет выбрать операционную систему (например Windows
         System.out.println(("My os is " + os));
@@ -151,6 +152,28 @@ public class PracticeFormPage extends BasePage {
 
     public PracticeFormPage clickOnSubmitButton2() {
         clickWithRectangle(submit,2,3);   //метод используется, если кнопка проблемная, не полностью подсвечивается
+        return this;
+    }
+
+    @FindBy (id  = "example-modal-sizes-title-lg")
+    WebElement modalTitle;
+    public PracticeFormPage assertSubmit(String title) {
+        Assert.assertTrue(isTextPresent(modalTitle, title));
+
+        return this;
+    }
+
+    @FindBy (css = ".react-datepicker__month-select")
+    WebElement selectMonth;
+
+    @FindBy (css = ".react-datepicker__year-select")
+    WebElement selectYear;
+
+    @FindBy (xpath = "//div[@class='react-datepicker__week']//div[.='15']")
+    WebElement selectDay;
+
+    public PracticeFormPage selectDate(String month, String year, String day) {
+    clickWithJSExecutor(dateOfBirthInput,0,600);
         return this;
     }
 }
