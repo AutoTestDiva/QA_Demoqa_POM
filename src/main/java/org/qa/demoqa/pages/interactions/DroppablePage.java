@@ -46,8 +46,8 @@ public class DroppablePage extends BasePage {
         int yOffset = dropHere.getLocation().getY();
         System.out.println("xOffset --> " + xOffset + "yOffset --> " + yOffset);
         //get different xOffset and yOffset
-        xOffset = (xOffset-xOffset1) + x;
-        yOffset = (yOffset-yOffset1) +y;
+        xOffset = (xOffset - xOffset1) + x;
+        yOffset = (yOffset - yOffset1) +y;
         new Actions(driver).dragAndDropBy(dragMe, xOffset, yOffset).perform();
         return this;
     }

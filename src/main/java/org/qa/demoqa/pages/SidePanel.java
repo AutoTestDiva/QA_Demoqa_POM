@@ -10,6 +10,7 @@ import org.qa.demoqa.pages.bookStore.ProfilePage;
 import org.qa.demoqa.pages.elements.BrokenLinksImagesPage;
 import org.qa.demoqa.pages.elements.ButtonsPage;
 import org.qa.demoqa.pages.elements.LinksPage;
+import org.qa.demoqa.pages.elements.TextBoxPage;
 import org.qa.demoqa.pages.form.PracticeFormPage;
 import org.qa.demoqa.pages.interactions.DroppablePage;
 import org.qa.demoqa.pages.widgets.*;
@@ -114,5 +115,12 @@ public class SidePanel extends BasePage{
     public DroppablePage selectDroppable() {
         clickWithJSExecutor(droppable,0,600);
         return new DroppablePage(driver);
+    }
+
+    @FindBy(xpath = "//span[.='Text Box']")
+    WebElement textBox;
+    public TextBoxPage selectTextBox() {
+        clickWithJSExecutor(textBox,0,600);
+        return new TextBoxPage(driver);
     }
 }
