@@ -18,4 +18,10 @@ public class DropDragTests extends TestBase {
         new DroppablePage(driver).actionDragMe()
                 .assertDropped("Dropped!");
 }
+    @Test
+    public void dragMeByTest(){
+        new DroppablePage(driver).actionDragMeBy(20,50)  //приблизительно пиксели по бокам и сверху
+                .assertDropped("Dropped!");
+    }
+
 }
