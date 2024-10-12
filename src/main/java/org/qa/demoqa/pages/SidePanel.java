@@ -11,6 +11,7 @@ import org.qa.demoqa.pages.elements.BrokenLinksImagesPage;
 import org.qa.demoqa.pages.elements.ButtonsPage;
 import org.qa.demoqa.pages.elements.LinksPage;
 import org.qa.demoqa.pages.form.PracticeFormPage;
+import org.qa.demoqa.pages.interactions.DroppablePage;
 import org.qa.demoqa.pages.widgets.*;
 
 public class SidePanel extends BasePage{
@@ -107,5 +108,11 @@ public class SidePanel extends BasePage{
     public ToolTipsPage selectToolTips() {
     clickWithJSExecutor(toolTips,0,600);
         return new ToolTipsPage(driver);
+    }
+    @FindBy(xpath = "//span[.='Droppable']")
+    WebElement droppable;
+    public DroppablePage selectDroppable() {
+        clickWithJSExecutor(droppable,0,600);
+        return new DroppablePage(driver);
     }
 }
