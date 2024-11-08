@@ -18,10 +18,10 @@ public class HomePage extends BasePage{
     }
 
 
-    @FindBy(xpath = "//a[.='JavaScript Alerts']")
+    @FindBy(css = "div:nth-child(3) div:nth-child(1) div:nth-child(3) h5:nth-child(1)")
     WebElement alertsLink;
     public AlertsPage getAlerts() {
-        click (alertsLink);
+        clickWithJSExecutor (alertsLink, 0, 600);
         return new AlertsPage(driver);
     }
 

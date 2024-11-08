@@ -1,5 +1,6 @@
 package org.qa.demoqa.pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,14 +17,15 @@ public class AlertsPage extends BasePage{
         super(driver);
     }
 
-    @FindBy(css = "[onclick='jsAlert()']")
+    @FindBy(xpath = "//span[normalize-space()='Alerts']")
     WebElement jsAlert;
     public AlertsPage clickOnAlertButton() {
-        click(jsAlert);
+        clickWithJSExecutor(jsAlert, 0, 600);
         return this;
     }
 
     public AlertsPage acceptAlert() {
+        //((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 20);");
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
             wait.until(ExpectedConditions.alertIsPresent()).accept();
@@ -67,6 +69,14 @@ public class AlertsPage extends BasePage{
         if(message !=null){
             driver.switchTo().alert().sendKeys(message);
         }
+        return this;
+    }
+
+
+    @FindBy(xpath = "//button[@id='alertButton']")
+    WebElement buttonToSeeAlert;
+    public AlertsPage clickOnButtonToSeeAlert() {
+        clickWithJSExecutor(buttonToSeeAlert, 0, 200);
         return this;
     }
 }
