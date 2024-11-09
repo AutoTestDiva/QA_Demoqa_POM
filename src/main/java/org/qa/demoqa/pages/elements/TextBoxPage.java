@@ -16,7 +16,7 @@ public class TextBoxPage extends BasePage {
 
     @FindBy(id="currentAddress")
     WebElement currentAddress;
-    public TextBoxPage keyBoardEvant(String text) {
+    public TextBoxPage keyBoardEvent(String text) {
         typeWithJSExecutor(currentAddress, text, 0, 600);
 
         Actions actions = new Actions(driver);
