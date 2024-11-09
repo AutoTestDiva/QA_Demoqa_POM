@@ -1,9 +1,6 @@
 package org.qa.demoqa.pages;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -25,17 +22,31 @@ public class AlertsPage extends BasePage{
     }
 
     public AlertsPage acceptAlert() {
-        //((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 20);");
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-            wait.until(ExpectedConditions.alertIsPresent()).accept();
+            Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+            alert.accept();  // Закрыть alert
         }catch (NoAlertPresentException ex){
-
         }
         return this;
     }
 
-    @FindBy(id = "result")
+    public AlertsPage acceptAlert2(String expectedAlertText) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+            Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+
+            // Проверяем текст внутри alert
+            String actualAlertText = alert.getText();
+            Assert.assertEquals(actualAlertText, expectedAlertText, "You clicked a button");
+
+            alert.accept();  // Закрыть alert
+        } catch (NoAlertPresentException ex) {
+            System.out.println("No alert present.");
+        }
+        return this;
+    }
+    @FindBy(id = "alertButton")
     WebElement result;
     public AlertsPage verifyResult(String message) {
     Assert.assertTrue(shouldHaveText(result, message, 5));
