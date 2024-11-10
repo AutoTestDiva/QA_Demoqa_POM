@@ -26,7 +26,7 @@ public class UploadPage extends BasePage {
         pause(1000);
         ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 200);");
         pause(1000);
-        clickWithRectangle(uploadFile,2,3);
+        clickWithRectangle(uploadFile,2,4);
 
         Robot robot = null;
         try {
