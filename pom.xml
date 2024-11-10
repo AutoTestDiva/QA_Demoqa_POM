@@ -21,6 +21,13 @@
             <version>4.12.1</version>
         </dependency>
 
+        <!-- WebDriverManager (для автоматической установки драйвера браузера) -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.3.0</version> <!-- Используйте актуальную версию -->
+        </dependency>
+
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
