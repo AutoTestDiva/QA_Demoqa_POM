@@ -31,10 +31,24 @@ public class TextBoxPage extends BasePage {
         return this;
     }
 
-    @FindBy(id ="permanentAddress")
-    WebElement permanentAddress;
+    @FindBy(xpath ="//p[@id='currentAddress']")
+    WebElement currentAddressResult;
+
+    @FindBy(xpath ="//p[@id='permanentAddress']")
+    WebElement permanentAddressResult;
     public TextBoxPage assertCopyPastText(String text) {
-        Assert.assertTrue(isTextPresent(permanentAddress, text));
+
+        String[] current = currentAddressResult.getText().split(":");
+        String[] permanent = permanentAddressResult.getText().split(":");
+
+        Assert.assertEquals(permanent[1], current[1]);
+        return this;
+    }
+
+    @FindBy(id = "submit")
+    WebElement submit;
+    public TextBoxPage submit() {
+        clickWithJSExecutor(submit, 0, 600);
         return this;
     }
 }
