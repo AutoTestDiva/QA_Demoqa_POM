@@ -18,4 +18,9 @@ public class RobotTests extends TestBase {
         new UploadPage(driver).performKeyEventWithRobot()
                 .assertPath("C:\\fakepath\\D1.txt");
     }
+    @Test
+    public void performMouseEventTests(){
+        new UploadPage(driver).performMouseEvent()
+                .assertPath("C:\\fakepath\\java_error_in_idea64_7192.log");
+    }
 }
